@@ -3,3 +3,8 @@
 # produce it; correctness is held by the batch gate in tests/examples-corpus.test.ts.
 examples/diagrams/*.html linguist-generated=true
 examples/charts/*.html   linguist-generated=true
+
+# Template bytes are hashed into schemas/template-descriptions.json, so they must
+# keep LF endings on every platform. CRLF checkouts (Windows autocrlf) change the hash
+# and make `ui templates catalogue --check` report drift.
+templates/** text eol=lf
